@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts.apps.AccountsConfig',
-    # 'home.apps.AccountsConfig',
+    'home.apps.HomeConfig',
+    'realtors.apps.RealtorsConfig',
+    'products.apps.ProductsConfig',
     'django.contrib.humanize',
 ]
 
@@ -81,7 +83,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'frontend',
         'USER': 'postgres',
-        'PASSWORD': 'root',
+        'PASSWORD': '1234',
         'HOST': 'localhost'
     }
 }

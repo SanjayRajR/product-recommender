@@ -12,7 +12,7 @@ from mlxtend.frequent_patterns import apriori
 import numpy as np
 import pandas as pd
 from mlxtend.preprocessing import TransactionEncoder
-from listings.choices import price_choices,type_choices,brand_choices
+from products.choices import price_choices,type_choices,brand_choices
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.feature_extraction.text import TfidfTransformer, CountVectorizer
 from sklearn.pipeline import Pipeline
