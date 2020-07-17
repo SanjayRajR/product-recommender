@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +24,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap" rel="stylesheet">
 <!-- ===============================================================================================-->	
 
-	<link rel="stylesheet" type="text/css" href="/static/styles/main.css">
+<link rel="stylesheet" href="{% static 'css/accounts.css' %}">
 <body>
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -34,21 +36,21 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link"  href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
         </li>
         {% if user.is_authenticated %}
         <li class="nav-item">
-         <a class="nav-link headers" href="/register">{{ user.first_name}} {{ user.last_name}} </a>
+         <a class="nav-link headers" href="{% url 'register' %}">{{ user.first_name}} {{ user.last_name}} </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link headers" href="/logout"><i class="zmdi zmdi-sign-in"></i>  Log Out</a>
+          <a class="nav-link headers" href="{% url 'logout' %}"><i class="zmdi zmdi-sign-in"></i>  Log Out</a>
         </li>
         {% else %}
           <li class="nav-item">
-            <a class="nav-link" href="/register">Sign-Up</a>
+            <a class="nav-link" href="{% url 'register' %}">Sign-Up</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/login">Log In</a>
+            <a class="nav-link"  href="{% url 'login' %}">Log In</a>
          </li>
         {% endif %}
     </div>
@@ -63,5 +65,6 @@
   		{% else %}
   		{% endif %}
   </div>
+  {% block content %} {% endblock %}
 </body>
 </html>
