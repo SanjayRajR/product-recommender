@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts.apps.AccountsConfig',
-    # 'home.apps.AccountsConfig',
+    'home.apps.HomeConfig',
+    'realtors.apps.RealtorsConfig',
+    'products.apps.ProductsConfig',
     'django.contrib.humanize',
 ]
 

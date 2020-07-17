@@ -11,8 +11,8 @@ body, html {
 }
 
 /*---------------------------------------------*/
-a {
-  font-family: 'Poppins', sans-serif;
+.nav-item a {
+  font-family: 'Montserrat', sans-serif;
     font-size: 14px;
     line-height: 1.7;
     color: #666666;
@@ -107,10 +107,22 @@ iframe {
 }
 
 /* Navbar Settings */
+
+#navbarSupportedContent{
+  font-family: 'Rokkitt', serif;
+}
+
 .navbar-collapse{
   font-weight: bold;
   font-size: 16px
 }
+
+@media (min-width: 992px) {
+  .nav-center{
+    padding-left: 30%;
+  }
+}
+
 
 .headers {
 font-size: 14px;
