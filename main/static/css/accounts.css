@@ -13,9 +13,10 @@ body, html {
 /*---------------------------------------------*/
 .nav-item a {
   font-family: 'Montserrat', sans-serif;
-    font-size: 14px;
+    font-size: 17px;
     line-height: 1.7;
-    color: #666666;
+    color:  #353535;
+    font-weight: lighter;
     margin: 0px;
     transition: all 0.4s;
     -webkit-transition: all 0.4s;
@@ -108,13 +109,17 @@ iframe {
 
 /* Navbar Settings */
 
+.navbar-light .navbar-nav .nav-link {
+  color:#353535;
+}
+
 #navbarSupportedContent{
   font-family: 'Rokkitt', serif;
 }
 
 .navbar-collapse{
   font-weight: bold;
-  font-size: 16px
+  font-size: 20px
 }
 
 @media (min-width: 992px) {
