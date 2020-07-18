@@ -28,7 +28,7 @@ def index(request):
     context = {
         'listings': paged_listings
     }
-    return render(request, 'pages/listings.html',context)
+    return render(request, 'products/listings.html',context)
 
 def listing(request, listing_id):
     listing = get_object_or_404(Product, pk=listing_id)
@@ -66,7 +66,7 @@ def listing(request, listing_id):
         'suggested_product': suggested_product
     }
     print(context)
-    return render(request, 'pages/listing.html',context)
+    return render(request, 'products/listing.html',context)
 
 def search(request):
     queryset_list = Product.objects.order_by('-list_date')
@@ -106,7 +106,7 @@ def search(request):
         'type_choices': type_choices,
         'values': request.GET
     }
-    return render(request, 'pages/search.html',context)
+    return render(request, 'products/search.html',context)
 
 def validate_products(products):
     found_product_ids = []

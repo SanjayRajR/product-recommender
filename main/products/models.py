@@ -33,25 +33,24 @@ class Listing(models.Model):
 
 
 PRODUCT_TYPE = {
-    ('Fruites_Vegitables', 'Fruites_Vegitables'),
-    ('Food_Drinks', 'Food_Drinks'),
+    ('Smartphone', 'Smartphone'),
+    ('Laptops', 'Laptops'),
+    ('Earphones', 'Earphones'),
+    ('Accessories', 'Accessories'),
 }
 
 product_sub_type = {
-    ('veg', 'veg'),
-    ('Non_veg', 'Non_veg'),
-    ('Cooking', 'Cooking'),
-    ('Ready_Food', 'Ready_Food'),
+    ('Electronics', 'Electronics')
 }
 brand_name = {
-    ('MTR', 'MTR'),
-    ('Dairy_Milk', 'Dairy_Milk'),
-    ('Nandini', 'Nandini'),
-    ('Nescafe', 'Nescafe'),
-    ('Sunset', 'Sunset'),
-    ('KFC', 'KFC'),
-    ('Pepsi', 'Pepsi'),
-    ('Sea_Cone', 'Sea_Cone'),
+    ('Samsung', 'Samsung'),
+    ('Apple', 'Apple'),
+    ('Oneplus', 'Oneplus'),
+    ('Dell', 'Dell'),
+    ('HP', 'HP'),
+    ('Lenovo', 'Lenovo'),
+    ('jbl', 'jbl'),
+    ('bose', 'bose'),
 }
 
 class Product(models.Model):
