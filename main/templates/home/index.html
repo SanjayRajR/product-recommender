@@ -3,7 +3,7 @@
 
 {% load static %}
 {% block content %}
-
+<section id="carousel">
 	<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 		<div class="carousel-inner">
 		  <div class="carousel-item active">
@@ -25,12 +25,13 @@
 		  <span class="sr-only">Next</span>
 		</a>
 	  </div>
+</section>
 
 	<!-- New Product -->
-	<section class=" bgwhite p-t-45 p-b-105">
+	<section id="featured" class=" bgwhite p-t-45 p-b-105">
 		<div class="container">
 			<div class="sec-title p-b-60">
-				<h3 class="m-text5 t-center">
+				<h3 class="text-center">
 					Featured Products
 				</h3>
 			</div>
@@ -319,200 +320,81 @@
 		</div>
 	</section>
 
+
 <!-- Shipping -->
-	<section class="shipping bgwhite p-t-62 p-b-46">
-		<div class="flex-w p-l-15 p-r-15">
-			<div class="flex-col-c w-size5 p-l-15 p-r-15 p-t-16 p-b-15 respon1">
-				<h4 class="m-text12 t-center">
-					Free Delivery Worldwide
-				</h4>
-
-				<a href="#" class="s-text11 t-center index_a">
-					Click here for more info
-				</a>
+<section id="guarantee" class="bg6">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 col-sm-12">
+				<span class="fas fa-shipping-fast fa-5x icons"></span>
+				<p>Free Delivery Worldwide</p>
+					
 			</div>
 
-			<div class="flex-col-c w-size5 p-l-15 p-r-15 p-t-16 p-b-15 bo2 respon2">
-				<h4 class="m-text12 t-center">
-					30 Days Return
-				</h4>
-
-				<span class="s-text11 t-center">
-					Simply return it within 30 days for an exchange.
-				</span>
+			<div class="col-md-4 col-sm-12">
+				<span class="far fa-check-circle fa-5x icons"></span>
+				<p>30 Days Money back Gurantee</p>
+					
 			</div>
 
-			<div class="flex-col-c w-size5 p-l-15 p-r-15 p-t-16 p-b-15 respon1">
-				<h4 class="m-text12 t-center">
-					Store Opening
-				</h4>
-
-				<span class="s-text11 t-center">
-					Shop open from Monday to Sunday
-				</span>
+			<div class="col-md-4 col-sm-12">
+				<span class="fas fa-cogs fa-5x icons"></span>
+				<p>Free Maintenance Services</p>
 			</div>
+
 		</div>
-	</section>
+	</div>
+</section>
 
+<!-- About -->
+<section id="about" class="bgwhite">
+	<div class="container">
+		<div class="header">
+			<h4>About Us</h4>
+		</div>
 
-	<!-- Blog -->
-	<section class="blog bgwhite p-t-94 p-b-65">
-		<div class="container">
-			<div class="sec-title p-b-52">
-				<h3 class="m-text5 t-center">
-					About Us
-				</h3>
+		<div class="row">
+			<div class="col-md-6 col-sm-12">
+				<img src="{% static 'img/anu.png' %}" alt="Anu's Dp">
+				<div>
+					<h5 class="name">Anu Vikram K</h5>
+					<p>Full Stack Web Developer, Singer and Dancer</p>
+					<p>Ramaiah Institute of Technology</p>
+				</div>
+				<div class="socialMedia">
+					<a href="https://github.com/Anu-Nair" target="_blank"><i class="fab fa-github fa-lg"></i></a>
+					<a href="https://www.linkedin.com/in/anu-nair-7826bb182/" target="_blank"><i class="fab fa-linkedin-in fa-lg"></i></a>
+					<a href="mailto:anuvikram2111@gmail.com"><i class="fas fa-envelope fa-lg"></i></a>
+					<a href="https://www.instagram.com/anu_nair_/" target="_blank"><i class="fab fa-instagram fa-lg"></i></a>
+				</div>
+				
+
 			</div>
 
-			<div class="row">
-				<div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto">
-					<!-- Block3 -->
-					<div class="block3">
-						<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom index_a">
-							<img src="static/images/blog-01.jpg" alt="IMG-BLOG">
-						</a>
-
-						<div class="block3-txt p-t-14">
-							<h4 class="p-b-7">
-								<a href="blog-detail.html" class="m-text11 index_a">
-									Black Friday Guide: Best Sales & Discount Codes
-								</a>
-							</h4>
-
-							<span class="s-text6">By</span> <span class="s-text7">Nancy Ward</span>
-							<span class="s-text6">on</span> <span class="s-text7">July 22, 2017</span>
-
-							<p class="s-text8 p-t-16">
-								Duis ut velit gravida nibh bibendum commodo. Sus-pendisse pellentesque mattis augue id euismod. Inter-dum et malesuada fames
-							</p>
-						</div>
-					</div>
+			<div class="col-md-6 col-sm-12">
+				<img src="{% static 'img/sanjay.png' %}" alt="Anu's Dp">
+				<div>
+					<h5 class="name">Sanjay Raj R</h5>
+					<p>Full Stack Web Developer and Photographer</p>
+					<p>Ramaiah Institute of Technology</p>
 				</div>
-
-
-				<div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto">
-					<!-- Block3 -->
-					<div class="block3">
-						<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom index_a">
-							<img src="static/images/blog-03.jpg" alt="IMG-BLOG">
-						</a>
-
-						<div class="block3-txt p-t-14">
-							<h4 class="p-b-7">
-								<a href="blog-detail.html" class="m-text11 index_a">
-									New York SS 2018 Street Style: Annina Mislin
-								</a>
-							</h4>
-
-							<span class="s-text6">By</span> <span class="s-text7">Nancy Ward</span>
-							<span class="s-text6">on</span> <span class="s-text7">July 2, 2017</span>
-
-							<p class="s-text8 p-t-16">
-								Proin nec vehicula lorem, a efficitur ex. Nam vehicula nulla vel erat tincidunt, sed hendrerit ligula porttitor. Fusce sit amet maximus nunc
-							</p>
-						</div>
-					</div>
+				<div class="socialMedia">
+					<a href="https://github.com/SanjayRajR" target="_blank"><i class="fab fa-github fa-lg"></i></a>
+					<a href="https://www.linkedin.com/in/sanjay-raj-r-27b68b145/" target="_blank"><i class="fab fa-linkedin-in fa-lg"></i></a>
+					<a href="mailto:reachsanjayraj@gmail.com"><i class="fas fa-envelope fa-lg"></i></a>
+					<a href="https://www.instagram.com/sanjayraj__r/" target="_blank"><i class="fab fa-instagram fa-lg"></i></a>
 				</div>
 			</div>
 		</div>
-	</section>
-
-	
-
-	
+	</div>
+</section>
 
 	<!-- Footer -->
-	<footer class="bg6 p-t-45 p-b-43 p-l-45 p-r-45">
-		<div class="flex-w p-b-90">
-			<div class="w-size6 p-t-30 p-l-15 p-r-15 respon3">
-				<h4 class="s-text12 p-b-30">
-					GET IN TOUCH
-				</h4>
-
-				<div>
-					<p class="s-text7 w-size27">
-						Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on (+1) 96 716 6879
-					</p>
-
-					<div class="flex-m p-t-30">
-						<a href="#" class="fs-18 color1 p-r-20 fa fa-facebook index_a"></a>
-						<a href="#" class="fs-18 color1 p-r-20 fa fa-instagram index_a"></a>
-						<a href="#" class="fs-18 color1 p-r-20 fa fa-pinterest-p index_a"></a>
-						<a href="#" class="fs-18 color1 p-r-20 fa fa-snapchat-ghost index_a"></a>
-						<a href="#" class="fs-18 color1 p-r-20 fa fa-youtube-play index_a"></a>
-					</div>
-				</div>
-			</div>
-
-			
-
-			<div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
-				<h4 class="s-text12 p-b-30">Links</h4>
-
-				<ul>
-					<li class="p-b-9">
-						<a href="#" class="s-text7 index_a">Search</a>
-					</li>
-
-					<li class="p-b-9">
-						<a href="#" class="s-text7 index_a">About Us</a>
-					</li>
-
-					<li class="p-b-9">
-						<a href="#" class="s-text7 index_a">Contact Us</a>
-					</li>
-
-					<li class="p-b-9">
-						<a href="#" class="s-text7 index_a">Returns</a>
-					</li>
-				</ul>
-			</div>
-
-			<div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
-				<h4 class="s-text12 p-b-30">Help</h4>
-
-				<ul>
-					<li class="p-b-9">
-						<a href="#" class="s-text7 index_a">Track Order</a>
-					</li>
-
-					<li class="p-b-9">
-						<a href="#" class="s-text7 index_a">Returns</a>
-					</li>
-
-					<li class="p-b-9">
-						<a href="#" class="s-text7 index_a">Shipping</a>
-					</li>
-				</ul>
-			</div>
-
-			<div class="w-size8 p-t-30 p-l-15 p-r-15 respon3">
-				<h4 class="s-text12 p-b-30">
-					Newsletter
-				</h4>
-
-				<form>
-					<div class="effect1 w-size9">
-						<input class="s-text7 bg6 w-full p-b-5" type="text" name="email" placeholder="email@example.com">
-						<span class="effect1-line"></span>
-					</div>
-
-					<div class="w-size2 p-t-20">
-						<!-- Button -->
-						<button class="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4">
-							Subscribe
-						</button>
-					</div>
-
-				</form>
-			</div>
+	<footer class="bg6">
+		<div class="copyrights">
+			<p>© 2020 Anu and Sanjay</p>
 		</div>
 
-		
-			<div class="t-center s-text8 p-t-20">
-				Copyright © 2020 All rights reserved.
-			</div>
-		</div>
 	</footer>
 
 
