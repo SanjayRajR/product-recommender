@@ -5,6 +5,27 @@ from django.contrib.auth.models import User
 
 
 # Create your models here.
+# class Electronics(models.Model):
+#     name = models.CharField(max_length=200)
+#     brand = models.CharField(max_length=200, choices=brand_name)
+#     type = models.CharField(max_length=200, choices=PRODUCT_TYPE)
+#     sub_type = models.CharField(max_length=100, choices=product_sub_type)
+#     #zipcode = models.CharField(max_length=20)
+#     description = models.TextField(blank=True)
+#     price = models.IntegerField()
+#     weight = models.DecimalField(max_digits=8, decimal_places=1,blank=True)
+#     photo_main = models.ImageField(upload_to='photos/%y/%m/%d/')
+#     photo_1 = models.ImageField(upload_to='photos/%y/%m/%d/', blank=True)
+#     photo_2 = models.ImageField(upload_to='photos/%y/%m/%d/', blank=True)
+#     photo_3 = models.ImageField(upload_to='photos/%y/%m/%d/', blank=True)
+#     photo_4 = models.ImageField(upload_to='photos/%y/%m/%d/', blank=True)
+#     photo_5 = models.ImageField(upload_to='photos/%y/%m/%d/', blank=True)
+#     photo_6 = models.ImageField(upload_to='photos/%y/%m/%d/', blank=True)
+#     is_available = models.BooleanField(default=True)
+#     list_date = models.DateField(default=datetime.now,blank=True)
+#     def __str__(self):
+#         return self.name
+
 class Listing(models.Model):
     realtor = models.ForeignKey(Realtor, on_delete=models.DO_NOTHING)
     title = models.CharField(max_length=200)
