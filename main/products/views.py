@@ -28,6 +28,7 @@ def index(request):
     context = {
         'listings': paged_listings
     }
+    print(listings)
     return render(request, 'products/listings.html',context)
 
 def listing(request, listing_id):
