@@ -14,7 +14,7 @@ body, html {
 }
 
 /* ------------------------------------ */
-a {
+.index_a {
 	font-family: Montserrat-Regular;
   font-weight: 400;
 	font-size: 15px;
