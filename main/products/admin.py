@@ -7,7 +7,7 @@ class ProductAdmin(admin.ModelAdmin):
     list_display_links = ('id', 'name')
     list_filter = ('brand',)
     list_editable = ('is_available',)
-    search_fields = ('name', 'description', 'type', 'stype', 'ram', 'storage', 'price')
+    search_fields = ('name', 'description', 'type')
     list_per_page = 25
 
 class TransactionAdmin(admin.ModelAdmin):

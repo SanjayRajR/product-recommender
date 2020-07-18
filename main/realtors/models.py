@@ -16,11 +16,12 @@ class Realtor(models.Model):
 
 class Seller(models.Model):
     name = models.CharField(max_length=200)
-    photo = models.ImageField(upload_to='photos/%Y/%m/%d/')
+    email = models.EmailField(default="none",max_length=254)
+    city = models.CharField(default="India",max_length=200)
+    state = models.CharField(default="None",max_length=200)
+    partnered_on = models.DateField(default=datetime.now, blank=True)
     description = models.TextField(blank=True)
-    support_no = models.CharField(max_length=20)
-    support_mail = models.CharField(max_length=50)
-    is_top = models.BooleanField(default=False)
-    contract_date = models.DateField(default=datetime.now, blank=True)
+    delivery_in = models.CharField(default="10days",max_length=30)
+    
     def __str__(self):
         return self.name
