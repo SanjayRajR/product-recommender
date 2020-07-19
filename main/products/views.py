@@ -20,19 +20,19 @@ from sklearn.pipeline import Pipeline
 
 
 def index(request):
-    listings = Product.objects.order_by('-list_date').filter(is_available=True)
+    products = Product.objects.order_by('-list_date').filter(is_available=True)
 
-    paginator = Paginator(listings, 6)
+    paginator = Paginator(products, 6)
     page = request.GET.get('page')
     paged_listings = paginator.get_page(page)
     context = {
-        'listings': paged_listings
+        'products': paged_listings
     }
-    print(listings)
-    return render(request, 'products/listings.html',context)
+    # print(listings)
+    return render(request, 'products/view_products.html',context)
 
-def listing(request, listing_id):
-    listing = get_object_or_404(Product, pk=listing_id)
+def product(request, product_id):
+    product = get_object_or_404(Product, pk=product_id)
     transaction = Transaction.objects.values_list('products')
     transaction_ids = [list(x) for x in transaction]
     num = []
@@ -41,7 +41,7 @@ def listing(request, listing_id):
         for ids in row:
             list_of_ids = ids.split(',')
             num.append([int(x) for x in list_of_ids])
-    product = listing_id
+    product = product_id
 
     sub_dataset = []
     for i in num:
@@ -61,13 +61,13 @@ def listing(request, listing_id):
         product_id = int(value)
         suggested_product = Product.objects.get(id=product_id)
     context = {
-        'listing': listing,
-        'listing_id':listing_id,
+        'product': product,
+        'product_id':product_id,
         'user': request.user,
         'suggested_product': suggested_product
     }
     print(context)
-    return render(request, 'products/listing.html',context)
+    return render(request, 'products/product.html',context)
 
 def search(request):
     queryset_list = Product.objects.order_by('-list_date')
