@@ -1,7 +1,26 @@
+/* Carousel Section */
+
 .product-carousel{
     width: 100%;
     height:50%;
     text-align: center;
+}
+
+.carouselButton{
+    
+}
+.carousel-control-prev-icon{
+    position: absolute;
+    left: 2rem;
+    color: #d3d3d3;
+
+}
+
+.carousel-control-next-icon {
+    position: absolute;
+    right: 2rem;
+    color: #d3d3d3;
+
 }
 
 /* Featured Products Section */
