@@ -8,7 +8,7 @@ from products.choices import price_choices,type_choices,brand_choices
 
 # Create your views here.
 def index(request):
-    products = Product.objects.order_by('-list_date').filter(is_available=True)[:3]
+    products = Product.objects.order_by('-list_date').filter(is_available=True)[:4]
     # shows 3 products on the index page based on the creation date
 
     context = {
