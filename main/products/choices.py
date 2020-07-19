@@ -1,8 +1,8 @@
 type_choices = {
-    'Mobile': 'Mobile',
-    'Laptop': 'Laptop',
-    'Earphones':'Earphones',
-    'Accessories':'Accessories',
+    'Mobile': 'Mobiles',
+    'Laptop': 'Laptops',
+    'Earphones': 'Earphones',
+    'Accessories': 'Accesories'
 }
 
 price_choices = {
