@@ -8,11 +8,7 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def home(response):
-<<<<<<< HEAD
     return render(response, "accounts/home.html")
-=======
-    return render(response, "home/index.html")
->>>>>>> f2086a8ee6eef3ab7e3ade92674754083011bf5e
 
 
 def login(request):
