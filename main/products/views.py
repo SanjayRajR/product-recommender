@@ -67,7 +67,7 @@ def product(request, product_id):
         'suggested_product': suggested_product
     }
     print(context)
-    return render(request, 'products/listing.html',context)
+    return render(request, 'products/product.html',context)
 
 def search(request):
     queryset_list = Product.objects.order_by('-list_date')
