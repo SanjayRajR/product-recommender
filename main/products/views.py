@@ -36,30 +36,30 @@ def product(request, product_id):
     transaction = Transaction.objects.values_list('products')
     transaction_ids = [list(x) for x in transaction]
     num = []
-
+    print(product)
     for row in transaction_ids:
         for ids in row:
             list_of_ids = ids.split(',')
             num.append([int(x) for x in list_of_ids])
-    product = product_id
+    pro = product_id
 
     sub_dataset = []
     for i in num:
-        if product in i:
+        if pro in i:
             sub_dataset.append(i)
     te = TransactionEncoder()
     te_ary = te.fit(sub_dataset).transform(sub_dataset)
     df = pd.DataFrame(te_ary, columns=te.columns_)
     df1 = df
-    df1[product] = False
+    df1[pro] = False
     df2 = apriori(df1, min_support=0.3, use_colnames=True)
     df2 = df2.sort_values(by='support', ascending=False)
     list1 = np.array(df2['itemsets'])
     suggested_product = None
     if list1 and len(list1) > 0:
         value, = list1[0]
-        product_id = int(value)
-        suggested_product = Product.objects.get(id=product_id)
+        pro_id = int(value)
+        suggested_product = Product.objects.get(id=pro_id)
     context = {
         'product': product,
         'product_id':product_id,

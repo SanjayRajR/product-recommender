@@ -53,7 +53,7 @@ function get_suggested_products(product_id) {
     <div class="container">
       <div class="row text-center">
         <div class="col-md-12">
-          <h1 class="display-4">{{ product.name }}</h1>
+          <h1 style="color:black">{{ product.name }}</h1>
           <p class="lead">
             <i class="fab fa-reddit-alien"></i> {{ product.category }}</p>
         </div>
@@ -72,7 +72,7 @@ function get_suggested_products(product_id) {
           <li class="breadcrumb-item">
             <a href="{% url 'products' %}">Listings</a>
           </li>
-          <li class="breadcrumb-item active">{{ listing.name }}</li>
+          <li class="breadcrumb-item active">{{ product.name }}</li>
         </ol>
       </nav>
     </div>
