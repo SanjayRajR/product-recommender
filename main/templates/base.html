@@ -39,7 +39,7 @@
 <body>
 
   <nav class="navbar navbar-expand-lg navbar-light bg6">
-    <a class="navbar-brand" href="#">Product Recommender</a>
+    <a class="navbar-brand" href="{% url 'index' %}">Product Recommender</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -50,10 +50,10 @@
             <a class="nav-link" href="#about">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'home' %}">Products</a>
+            <a class="nav-link" href="{% url 'products' %}">Products</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'home' %}">Sellers</a>
+            <a class="nav-link" href="{% url 'index' %}">Sellers</a>
           </li>
       </ul>
       <ul class="navbar-nav ml-auto">
@@ -88,5 +88,11 @@
   		{% endif %}
   </div>
   {% block content %} {% endblock %}
+  <!-- Footer -->
+	<footer class="bg6">
+		<div class="copyrights">
+			<p>© 2020 Anu and Sanjay</p>
+		</div>
+	</footer>
 </body>
 </html>
