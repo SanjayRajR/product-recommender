@@ -26,7 +26,9 @@ def index(request):
     page = request.GET.get('page')
     paged_listings = paginator.get_page(page)
     context = {
-        'products': paged_listings
+        'products': paged_listings,
+        'type_choices': type_choices,
+        'brand_choices': brand_choices
     }
     # print(listings)
     return render(request, 'products/view_products.html',context)

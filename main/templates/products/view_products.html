@@ -4,7 +4,7 @@
 {% load static %}
 {% block content %}
 <!-- Deals Carousel -->
-<section id="carousel">
+<section id="dealsCarousel">
 	<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 		<div class="carousel-inner">
 		  <div class="carousel-item active">
@@ -23,18 +23,47 @@
 		  <span class="sr-only">Next</span>
 		</a>
     </div>
-    
-</section>
-  <section id="showcase-inner" class="py-5 text-white">
+  <section id="products">
     <div class="container">
       <div class="row text-center">
-        <div class="col-md-12">
-          <h1 class="display-4">Browse Best Products Here</h1>
-          <p class="lead">More then 1000 electronic products and their accessory are available with best price in our site!</p>
+        <div class="col-md-3">
+          <div class="form-group">
+            <select class="form-control" id="sel1">
+              <option selected="true" disabled="disabled">Category</option>
+              {% for key, value in type_choices.items %}
+              <option class="decorated">{{ value }}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+              <select class="form-control" id="sel1">
+                <option selected="true" disabled="disabled">Brands</option>
+                {% for key, value in brand_choices.items %}
+                <option class="decorated" >{{ value }}</option>
+                {% endfor %}
+              </select>
+            </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group filter">
+            <div class="inner-addon right-addon">
+              <i class="fas fa-search glyphicon"></i>
+              <input type="text" class="form-control" placeholder="Search">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="slidecontainer">
+          <input type="range" min="400" max="200000" value="50000" class="slider" id="myRange" step="1000">
+          <h5>Price: ₹<span id="demo"></span></h5>
+        </div>
         </div>
       </div>
     </div>
   </section>
+
 
   <!-- Breadcrumb -->
   <section id="bc" class="mt-3">
@@ -136,5 +165,14 @@
 
     </div>
   </section>
+  <script>
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("demo");
+    output.innerHTML = slider.value;
+    
+    slider.oninput = function() {
+      output.innerHTML = this.value;
+    }
+    </script>
 
 {% endblock %}
