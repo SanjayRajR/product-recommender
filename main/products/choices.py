@@ -17,8 +17,10 @@ price_choices = {
 }
 
 brand_choices = {
-    'Onepluse': 'Onepluse',
+    'Oneplus': 'Oneplus',
     'Hp': 'Hp',
     'Dell': 'Dell',
     'Apple': 'Apple',
+    'Lenovo': 'Lenovo',
+    'Samsung': 'Samsung',
 }
