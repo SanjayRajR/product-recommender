@@ -1,0 +1,73 @@
+.product-carousel{
+    width: 100%;
+    height:50%;
+    text-align: center;
+}
+
+/* Featured Products Section */
+
+#featured{
+    padding: 50px 0px;
+    font-family: montserrat;
+}
+
+/* Shipping Section */
+
+#guarantee{
+    text-align: center;
+    padding: 50px 20px;
+}
+
+#guarantee .icons{
+    padding-bottom: 5px;
+}
+
+#guarantee p{
+    padding: 10px 0px;
+    font-size: large;
+}
+
+.col-sm-12{
+    padding: 50px 0px;
+}
+
+/* About Section */
+
+#about{
+    text-align: center;
+    padding: 50px 20px;
+}
+
+#about img{
+    width: 40%;
+    padding-bottom: 20px;
+    transition: transform .7s;
+}
+
+#about img:hover {
+    -ms-transform: scale(1.2); /* IE 9 */
+    -webkit-transform: scale(1.2); /* Safari 3-8 */
+    transform: scale(1.2); 
+    width: 40%;
+}
+
+#about .name{
+    padding-bottom: 20px;
+}
+
+#about a{
+    padding: 0px 10px;
+    text-decoration: none;
+    color: #212529;
+}
+
+#about .socialMedia{
+    padding: 20px 0px;
+}
+
+/* Footer Section */
+
+footer{
+    text-align: center;
+    padding: 30px;
+}
