@@ -112,6 +112,7 @@ function get_suggested_products(product_id) {
                 <li class="list-group-item text-secondary">
                   <i class="fas fa-money-bill-alt"></i> Asking Price:
                   <span class="float-right">Rs.{{ product.price | intcomma }}</span>
+                  
                 </li>
                 
               </ul>
@@ -122,7 +123,7 @@ function get_suggested_products(product_id) {
           <!-- Description -->
           <div class="row mb-5">
             <div class="col-md-12">
-                {{ product.specfication }}
+               <p> {{ product.specification }}</p>
             </div>
           </div>
           <!--
