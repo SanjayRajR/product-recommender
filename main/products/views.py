@@ -28,7 +28,8 @@ def index(request):
     context = {
         'products': paged_listings,
         'type_choices': type_choices,
-        'brand_choices': brand_choices
+        'brand_choices': brand_choices,
+        'values': request.GET
     }
     # print(listings)
     return render(request, 'products/view_products.html',context)

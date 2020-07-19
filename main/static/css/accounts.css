@@ -115,6 +115,13 @@ iframe {
 .navbar-light .navbar-nav .nav-link {
   color:#353535;
 }
+.nav-link{
+  padding-bottom: 1px;
+}
+
+.navbar{
+  padding-bottom: 12px;
+}
 
 #navbarSupportedContent{
   font-family: 'Rokkitt', serif;
@@ -129,6 +136,13 @@ iframe {
   .nav-center{
     padding-left: 30%;
   }
+}
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
+  border-bottom: 1px solid #353535;
+}
+
+.navbar .nav-item:hover .nav-link{
+  color: #666666;
 }
 
 

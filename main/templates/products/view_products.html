@@ -27,7 +27,8 @@
     <div class="container">
       <div class="row text-center">
         <div class="col-md-3">
-          <!-- <form action=""> -->
+          <form action="{% url 'products' %}">
+            
           <div class="form-group">
             <select class="form-control" id="sel1">
               <option selected="true" disabled="disabled">Category</option>
@@ -50,18 +51,26 @@
         <div class="col-md-3">
           <div class="form-group filter">
             <div class="inner-addon right-addon">
-              <i class="fas fa-search glyphicon"></i>
-              <input type="text" class="form-control" placeholder="Search">
+              <button type="button" class="fas fa-search glyphicon"></button>
+              <input type="text" name="search"class="form-control" placeholder="Search" value="{{ values.search }}"">
             </div>
           </div>
         </div>
         <div class="col-md-3">
-          <div class="slidecontainer">
-          <input type="range" min="400" max="200000" value="50000" class="slider" id="myRange" step="1000">
-          <h5>Price: ₹<span id="demo"></span></h5>
+          <div class="row">
+            <div class="col-md-9 col-sm-9">
+              <div class="slidecontainer">
+                <input type="range" name="price" min="400" max="200400" value="400" class="slider" id="myRange" step="1000" value="{{ values.price }}" >
+                <h6>Price: ₹<span id="demo"></span></h6>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-3">
+              <button type="submit" class="fas fa-filter fa-lg"></button>
+            </div>
+          </div>
+          
         </div>
-        </div>
-      <!-- </form> -->
+      </form>
       </div>
     </div>
     
