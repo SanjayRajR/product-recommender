@@ -11,8 +11,7 @@ def cart_add(request, id):
     cart = Cart(request)
     product = Product.objects.get(id=id)
     cart.add(product=product)
-    return redirect("index")
-    
+    return redirect("cart_detail")
 
 
 @login_required(login_url="/users/login")
@@ -75,5 +74,5 @@ def cart_checkout(request):
     else:
         messages.danger(request,'Cart is empty')
         return redirect('cart_detail')
-        
+
     return redirect("index")
