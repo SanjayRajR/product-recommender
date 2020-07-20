@@ -23,6 +23,9 @@
 		  <span class="sr-only">Next</span>
 		</a>
     </div>
+</section>
+
+<!--search bar-->
   <section id="products">
     <div class="container">
       <div class="row text-center">
@@ -72,6 +75,7 @@
         </div>
       </form>
       </div>
+      </div>
     </div>
     
   </section>
@@ -105,7 +109,7 @@
                       <i class="fas fa-clock"></i> {{ product.list_date | timesince }}</div>
                   </div>
                   <hr>
-                  <a href="{% url 'product' product.id %}" class="btn btn-primary btn-block">More Info</a>
+                  <a href="{% url 'product' product.id %}">More Info</a>
                 </div>
               </div>
             </div>
