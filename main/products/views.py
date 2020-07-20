@@ -104,7 +104,7 @@ def search(request):
             queryset_list = queryset_list.filter(price__lte=price)
 
     context = {
-        'listings': queryset_list,
+        'products': queryset_list,
         'price_choices': price_choices,
         'brand_choices': brand_choices,
         'type_choices': type_choices,
