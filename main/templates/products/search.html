@@ -49,21 +49,12 @@
             </div>
           {% endfor %}
         {% else %}
-          <div class="col-md-12">
-            <p>No Listing Available.</p>
+          <div class="text-center col-md-12">
+            <h4 style="padding-bottom: 34%;">No Products Available.</h4>
           </div>
         {% endif %}
 
       </div>
     </div>
   </section>
-  <script>
-    var slider = document.getElementById("myRange");
-    var output = document.getElementById("demo");
-    output.innerHTML = slider.value;
-    
-    slider.oninput = function() {
-      output.innerHTML = this.value;
-    }
-    </script>
 {% endblock %}
