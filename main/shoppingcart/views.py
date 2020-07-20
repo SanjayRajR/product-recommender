@@ -3,12 +3,12 @@ from products.models import Product
 from django.contrib.auth.decorators import login_required
 from cart.cart import Cart
 
-@login_required(login_url="/users/login")
+@login_required(login_url="/accounts/login")
 def cart_add(request, id):
     cart = Cart(request)
     product = Product.objects.get(id=id)
     cart.add(product=product)
-    return redirect("home")
+    return redirect("index")
 
 
 @login_required(login_url="/users/login")
@@ -42,6 +42,6 @@ def cart_clear(request):
     return redirect("cart_detail")
 
 
-@login_required(login_url="/users/login")
+@login_required(login_url="/accounts/login")
 def cart_detail(request):
-    return render(request, 'cart/cart_detail.html')
+    return render(request, 'shoppingcart/cart_display.html')
