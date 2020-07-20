@@ -70,9 +70,10 @@ def cart_checkout(request):
         order = Order(user=User.objects.get(id=request.user.id), products=purchased_products, quantity=quantity, amount=amount)
         order.save()
         cart.clear()
+        messages.success(request,'Sucessfully Purchased')
 
     else:
         messages.danger(request,'Cart is empty')
         return redirect('cart_detail')
 
-    return redirect("index")
+    return redirect("products")
