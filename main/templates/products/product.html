@@ -85,20 +85,20 @@ function get_suggested_products(product_id) {
       <div class="row">
         <div class="col-md-7">
           <!-- Home Main Image -->
-          <img src="{{ product.photo_main.url }}" alt="" class="img-main img-fluid mb-3"><hr>
+          <img src="{{ product.image.url }}" alt="" class="img-main img-fluid mb-3"><hr>
           <!-- Thumbnails -->
           <div class="row mb-5 thumbs">
-              {% if product.photo_1 %}
+              {% if product.image_1 %}
             <div class="col-md-2">
-              <a href="{{ product.photo_1.url }}" data-lightbox="home-images">
-                <img src="{{ product.photo_1.url }}" alt="" class="img-fluid">
+              <a href="{{ product.image_1.url }}" data-lightbox="home-images">
+                <img src="{{ product.image_1.url }}" alt="" class="img-fluid">
               </a>
             </div>
               {% endif %}
-              {% if product.photo_2 %}
+              {% if product.image_2 %}
             <div class="col-md-2">
-              <a href="{{ product.photo_2.url }}" data-lightbox="home-images">
-                <img src="{{ product.photo_2.url }}" alt="" class="img-fluid">
+              <a href="{{ product.image_2.url }}" data-lightbox="home-images">
+                <img src="{{ product.image_2.url }}" alt="" class="img-fluid">
               </a>
             </div>
               {% endif %}
@@ -180,7 +180,7 @@ function get_suggested_products(product_id) {
               <br/><b>Price: ₹{{ suggested_product.price }}</b>
             </div>
             <div class="col-md-5">
-              <img src="{{ suggested_product.photo_main.url }}" alt="smx" >
+              <img src="{{ suggested_product.image.url }}" alt="smx" >
             </div>
           </div>
             <hr>

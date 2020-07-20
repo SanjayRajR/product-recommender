@@ -37,7 +37,7 @@
 			{% for product in products %}
 			<div class="col-md-6 col-lg-3 block2">
 				<div class="block2-img wrap-pic-w of-hidden pos-relative block2-label new">
-					<img src="{{ product.photo_main.url }}" alt="IMG-PRODUCT" height="250" width="200">
+					<img src="{{ product.image.url }}" alt="IMG-PRODUCT" height="250" width="200">
 		
 					<div class="block2-overlay trans-0-4">
 						<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4 index_a">
@@ -47,8 +47,10 @@
 		
 						<div class="block2-btn-addcart w-size1 trans-0-4">
 							<!-- Button -->
+
 							<button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-								Add to Cart
+								<!-- Add to Cart -->
+								<a href="{% url 'cart_add' product.id %}">Add To Cart</a>
 							</button>
 						</div>
 					</div>

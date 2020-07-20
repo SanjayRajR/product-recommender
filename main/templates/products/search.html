@@ -16,7 +16,7 @@
           {% for product in products %}
             <div class="col-md-6 col-lg-4 mb-4">
               <div class="card listing-preview">
-                <img class="card-img-top" src="{{ product.photo_main.url }}" height="350" alt="">
+                <img class="card-img-top" src="{{ product.image.url }}" height="350" alt="">
                 <div class="card-img-overlay">
                   <h2>
                     <span class="badge badge-secondary text-white">₹{{ product.price | intcomma }}</span>

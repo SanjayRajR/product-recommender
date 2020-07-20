@@ -3,7 +3,7 @@ from products.models import Product
 from django.contrib.auth.decorators import login_required
 from cart.cart import Cart
 
-@login_required(login_url="/users/login")
+@login_required(login_url="/accounts/login")
 def cart_add(request, id):
     cart = Cart(request)
     product = Product.objects.get(id=id)
