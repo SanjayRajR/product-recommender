@@ -74,30 +74,26 @@ def product(request, product_id):
 
 def search(request):
     queryset_list = Product.objects.order_by('-list_date')
-    # Keywords
-    if 'keywords' in request.GET:
-        keywords = request.GET['keywords']
-        if keywords:
-            queryset_list = queryset_list.filter(specification__icontains=keywords)
-    # City
-    if 'ram' in request.GET:
-        ram = request.GET['ram']
-        if ram:
-            queryset_list = queryset_list.filter(ram__iexact=ram)
 
-    # State
-    if 'type' in request.GET:
-        type = request.GET['type']
-        if type:
-            queryset_list = queryset_list.filter(category__iexact=type)
+    # Category Search
+    if 'category' in request.GET:
+        category = request.GET['category']
+        if category:
+            queryset_list = queryset_list.filter(category__iexact=category)
 
-    # Bedrooms
+    # Brand Search
     if 'brand' in request.GET:
         brand = request.GET['brand']
         if brand:
             queryset_list = queryset_list.filter(brand__iexact=brand)
 
-    # Price
+
+    if 'search' in request.GET:
+        search = request.GET['search']
+        if search:
+            queryset_list = queryset_list.filter(specification__icontains=search)
+
+    # Price Search
     if 'price' in request.GET:
         price = request.GET['price']
         if price:
