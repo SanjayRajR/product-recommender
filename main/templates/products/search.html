@@ -39,14 +39,23 @@
                     <div class="col-6">
                       <i class="fas fa-clock"></i> {{ product.list_date | timesince }}</div>
                   </div>
-
-                 
-
                   <hr>
                   <a href="{% url 'product' product.id %}" class="btn btn-primary btn-block">More Info</a>
                 </div>
               </div>
             </div>
+        
+            <div class="block2-txt p-t-20">
+              <a href="{% url 'product' product.id %}" class="block2-name dis-block s-text3 p-b-5 index_a">
+                {{ product.name }}
+              </a>
+              <br>
+              <span class="block2-price m-text6 p-r-5">
+                ₹{{ product.price }}
+              </span>
+            </div>
+          <!-- display more details using variable {{product.is_available}}-->
+          </div>
           {% endfor %}
         {% else %}
           <div class="text-center col-md-12">
