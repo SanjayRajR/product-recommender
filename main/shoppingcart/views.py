@@ -8,7 +8,7 @@ def cart_add(request, id):
     cart = Cart(request)
     product = Product.objects.get(id=id)
     cart.add(product=product)
-    return redirect("index")
+    return redirect("cart_detail")
 
 
 @login_required(login_url="/users/login")
