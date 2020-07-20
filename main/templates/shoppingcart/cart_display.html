@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% load humanize %}
+{% load static %}
+
+{% load cart_tag %}
+{% block content %}
+<h2>Total Length :{{request.session.cart|length}}</h2>
+
+<!-- Cart Detail: -->
+<br>
+{% for key,value in request.session.cart.items %}
+
+<h5>{{value.name}}</h5> 
+<h5>{{value.price}}</h5> 
+<h5>{{value.quantity}} </h5>
+<h5>{{value.image}}</h5>
+<h5> Total {{ value.price|multiply:value.quantity }}</h5>
+<br>
+
+{% endfor %}
+{% endblock %}
