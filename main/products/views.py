@@ -172,3 +172,5 @@ def review_system(request):
     reviews = Review(user=User.objects.get(id=request.user.id),review_statement=review_statement,review_sentiment=sentiment[0])
     reviews.save()
     return redirect('listings')
+
+

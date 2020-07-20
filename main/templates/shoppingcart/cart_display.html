@@ -17,6 +17,9 @@
 <h5>{{value.image}}</h5>
 <h5> Total {{ value.price|multiply:value.quantity }}</h5>
 <br>
-
 {% endfor %}
+<form action="{% url 'checkout' %}">
+    <button type="submit" class="btn btn-outline-dark" >Checkout</button>
+</form>
+
 {% endblock %}
