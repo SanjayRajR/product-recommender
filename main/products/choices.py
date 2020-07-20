@@ -1,6 +1,6 @@
 type_choices = {
     'Smartphone': 'Smartphone',
-    'Laptop': 'Laptops',
+    'Laptops': 'Laptops',
     'Earphones': 'Earphones',
     'Accessories': 'Accesories'
 }

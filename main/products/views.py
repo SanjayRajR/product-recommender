@@ -78,7 +78,7 @@ def search(request):
     if 'keywords' in request.GET:
         keywords = request.GET['keywords']
         if keywords:
-            queryset_list = queryset_list.filter(description__icontains=keywords)
+            queryset_list = queryset_list.filter(specification__icontains=keywords)
     # City
     if 'ram' in request.GET:
         ram = request.GET['ram']
@@ -89,7 +89,7 @@ def search(request):
     if 'type' in request.GET:
         type = request.GET['type']
         if type:
-            queryset_list = queryset_list.filter(type__iexact=type)
+            queryset_list = queryset_list.filter(category__iexact=type)
 
     # Bedrooms
     if 'brand' in request.GET:

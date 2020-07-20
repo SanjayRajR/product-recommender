@@ -25,60 +25,8 @@
     </div>
 </section>
 
-<!--search bar-->
-  <section id="products">
-    <div class="container">
-      <div class="row text-center">
-        <div class="col-md-3">
-          <form action="{% url 'products' %}">
-            
-          <div class="form-group">
-            <select class="form-control" id="sel1">
-              <option selected="true" disabled="disabled">Category</option>
-              {% for key, value in type_choices.items %}
-              <option class="decorated">{{ value }}</option>
-              {% endfor %}
-            </select>
-          </div>
-        </div>
-        <div class="col-md-3">
-            <div class="form-group">
-              <select class="form-control" id="sel1">
-                <option selected="true" disabled="disabled">Brands</option>
-                {% for key, value in brand_choices.items %}
-                <option class="decorated" >{{ value }}</option>
-                {% endfor %}
-              </select>
-            </div>
-        </div>
-        <div class="col-md-3">
-          <div class="form-group filter">
-            <div class="inner-addon right-addon">
-              <button type="button" class="fas fa-search glyphicon"></button>
-              <input type="text" name="search"class="form-control" placeholder="Search" value="{{ values.search }}"">
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="row">
-            <div class="col-md-9 col-sm-9">
-              <div class="slidecontainer">
-                <input type="range" name="price" min="400" max="200400" value="400" class="slider" id="myRange" step="1000" value="{{ values.price }}" >
-                <h6>Price: ₹<span id="demo"></span></h6>
-              </div>
-            </div>
-            <div class="col-md-3 col-sm-3">
-              <button type="submit" class="fas fa-filter fa-lg"></button>
-            </div>
-          </div>
-          
-        </div>
-      </form>
-      </div>
-      </div>
-    </div>
-    
-  </section>
+<!-- Search Bar -->
+{% include 'shared/filterbar.html' %}
 
   <!-- Listings -->
   <section id="listings" class="py-4">
