@@ -55,9 +55,9 @@
     <div class="flex-w flex-m w-full-sm">
         <div class="size12 trans-0-4 m-t-10 m-b-10 m-r-10">
             <!-- Button -->
-            <button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
+            <a href="{% url 'cart_clear' %}"><button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
                 Clear Cart
-            </button>
+            </button></a>
         </div>
     </div>
 </div>
@@ -105,9 +105,12 @@
 
     <div class="size15 trans-0-4">
         <!-- Button -->
-        <button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
-            Proceed to Checkout
-        </button>
+        <form action="{% url 'checkout' %}">
+            <button type='submit' class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
+                Proceed to Checkout
+            </button>
+        </form>
+        
     </div>
 </div>
 </div>

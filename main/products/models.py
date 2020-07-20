@@ -2,6 +2,7 @@ from django.db import models
 from datetime import datetime
 from realtors.models import Seller, Realtor
 from django.contrib.auth.models import User
+from django_mysql.models import ListTextField
 
 product_category = {
     ('Smartphone', 'Smartphone'),
@@ -50,3 +51,11 @@ class Review(models.Model):
     review_sentiment = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True,blank=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+class Order(models.Model):
+    user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+    products = ListTextField(base_field=models.IntegerField(), size=10, blank=True)
+    quantity = ListTextField(base_field=models.IntegerField(), size=10, blank=True)
+    amount = ListTextField(base_field=models.IntegerField(), size=11, blank=True)
+    list_date = models.DateField(auto_now_add=True)
+

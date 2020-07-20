@@ -19,13 +19,13 @@ def login(request):
         user=auth.authenticate(username=email,password=password)
         if user is not None:
             auth.login(request,user)
-            return redirect('home')
+            return redirect('index')
         else:
             messages.danger(request,'Invalid Credentials')
             return redirect('login')
     else:
         if request.user.is_authenticated == True:
-            return redirect('home')
+            return redirect('index')
         return render(request,'accounts/login.html')
 
 
@@ -52,7 +52,7 @@ def register(response):
                 return redirect("login")
     else:
         if response.user.is_authenticated == True:
-            return redirect('home')
+            return redirect('index')
         form = RegisterForm()
         return render(response, "accounts/register.html", {"form":form})
 
