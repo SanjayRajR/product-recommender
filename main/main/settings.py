@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'realtors.apps.RealtorsConfig',
     'products.apps.ProductsConfig',
     'django.contrib.humanize',
+    'cart',
 ]
 
 MIDDLEWARE = [
@@ -131,3 +132,6 @@ STATICFILES_DIRS = [
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+#pip install django-shopping-cart
+CART_SESSION_ID = 'cart'
