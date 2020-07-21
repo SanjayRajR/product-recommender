@@ -3,59 +3,14 @@
 {% load humanize %}
 
 {% block content %}
-<script>
-function getCookie(name) {
-    var cookieValue = null;
-    if (document.cookie && document.cookie != '') {
-        var cookies = document.cookie.split(';');
-        for (var i = 0; i < cookies.length; i++) {
-            var cookie = jQuery.trim(cookies[i]);
-            // Does this cookie string begin with the name we want?
-            if (cookie.substring(0, name.length + 1) == (name + '=')) {
-                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                break;
-            }
-        }
-    }
-    return cookieValue;
-}
 
-function buy(buyBoth){
-    var products_id = buyBoth ? "{{ product.id }},{{ suggested_product.id }}" : "{{ product.id }}";
-    var csrf_token = getCookie("csrftoken");
-    var data =JSON.stringify({"products": pro_id});
-    var settings = {
-      "async": true,
-      "url": "http://127.0.0.1:8000/products/purchase",
-      "method": "POST",
-      "headers": {
-        "Content-Type": "application/json",
-        "cache-control": "no-cache",
-        "X-CSRFToken": csrf_token
-      },
-      "processData": false,
-      "data": data
-    }
-    console.log(data);
-    $.ajax(settings).done(function (response) {
-      console.log(response.status_code);
-      $('#inquiryModal').modal('hide');
-      alert(response.message);
-    });
-    return false;
-}
-
-function get_suggested_products(product_id) {
-}
-
-</script>
 <section id="showcase-inner" class="py-5 text-white">
     <div class="container">
       <div class="row text-center">
         <div class="col-md-12">
           <h1 style="color:black">{{ product.name }}</h1>
           <p class="lead">
-            <i class="fab fa-reddit-alien"></i> {{ product.category }}</p>
+            <i class="fas fa-mobile"></i> {{ product.category }}</p>
         </div>
       </div>
     </div>
