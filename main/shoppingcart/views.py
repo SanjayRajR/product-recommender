@@ -14,7 +14,7 @@ def cart_add(request, id):
     return redirect("cart_detail")
 
 
-@login_required(login_url="/users/login")
+@login_required(login_url="/accounts/login")
 def item_clear(request, id):
     cart = Cart(request)
     product = Product.objects.get(id=id)
@@ -22,7 +22,7 @@ def item_clear(request, id):
     return redirect("cart_detail")
 
 
-@login_required(login_url="/users/login")
+@login_required(login_url="/accounts/login")
 def item_increment(request, id):
     cart = Cart(request)
     product = Product.objects.get(id=id)
@@ -30,15 +30,18 @@ def item_increment(request, id):
     return redirect("cart_detail")
 
 
-@login_required(login_url="/users/login")
+@login_required(login_url="/accounts/login")
 def item_decrement(request, id):
     cart = Cart(request)
     product = Product.objects.get(id=id)
-    cart.decrement(product=product)
+    if cart.cart[str(id)]['quantity'] > 1:
+        cart.decrement(product=product)
+    else:
+        cart.remove(product)
     return redirect("cart_detail")
 
 
-@login_required(login_url="/users/login")
+@login_required(login_url="/accounts/login")
 def cart_clear(request):
     cart = Cart(request)
     cart.clear()
@@ -47,7 +50,19 @@ def cart_clear(request):
 
 @login_required(login_url="/accounts/login")
 def cart_detail(request):
-    return render(request, 'shoppingcart/cart_display.html')
+    cart = Cart(request)
+    quantity = []
+    amount = []
+    for i in cart.cart:
+        quantity.append(cart.cart[i]['quantity'])
+        amount.append(int(cart.cart[i]['price']))
+
+    amount = [amount[i] * quantity[i] for i in range(len(amount))]
+    total = sum(amount)
+    context = {
+        'total': total
+    }
+    return render(request, 'shoppingcart/cart_display.html', context)
 
 @login_required(login_url="/accounts/login")
 def cart_checkout(request):

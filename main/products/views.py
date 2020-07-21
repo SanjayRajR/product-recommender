@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect,get_object_or_404
-from .models import Product, Transaction,Review
+from .models import Product, Transaction, Review, Order
 from django.core.paginator import Paginator
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -36,16 +36,15 @@ def index(request):
 
 def product(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
-    transaction = Transaction.objects.values_list('products')
+    transaction = Order.objects.values_list('products')
     transaction_ids = [list(x) for x in transaction]
     num = []
-    print(product)
     for row in transaction_ids:
         for ids in row:
-            list_of_ids = ids.split(',')
+            listToStr = ' '.join([str(x) for x in ids]) 
+            list_of_ids = listToStr.split(' ')
             num.append([int(x) for x in list_of_ids])
     pro = product_id
-
     sub_dataset = []
     for i in num:
         if pro in i:
@@ -55,14 +54,22 @@ def product(request, product_id):
     df = pd.DataFrame(te_ary, columns=te.columns_)
     df1 = df
     df1[pro] = False
-    df2 = apriori(df1, min_support=0.3, use_colnames=True)
+    df2 = apriori(df1, min_support=0.01, use_colnames=True)
     df2 = df2.sort_values(by='support', ascending=False)
     list1 = np.array(df2['itemsets'])
-    suggested_product = None
-    if list1 and len(list1) > 0:
-        value, = list1[0]
-        pro_id = int(value)
-        suggested_product = Product.objects.get(id=pro_id)
+    newlol = []
+    for i in df2['itemsets']:
+        newlol.append(list(i))
+    newlol = newlol[0]
+    suggested_product = Product.objects.get(id=newlol[0])
+    print(suggested_product)
+    # suggested_product = None
+    # print("list1:" ,list1)
+    # if list1 and len(list1) > 0:
+    #     value, = list1[0]
+    #     pro_id = int(value)
+    #     suggested_product = Product.objects.get(id=pro_id)
+    #     print(suggested_product)
     context = {
         'product': product,
         'product_id':product_id,
@@ -172,5 +179,4 @@ def review_system(request):
     reviews = Review(user=User.objects.get(id=request.user.id),review_statement=review_statement,review_sentiment=sentiment[0])
     reviews.save()
     return redirect('listings')
-
 

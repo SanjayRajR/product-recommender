@@ -169,3 +169,25 @@ footer{
       padding-top: 10px;
       color: #353535;
   }
+  .colour{
+    color: #353535; 
+  }
+
+  /* Cart */
+
+  .quantity{
+      padding: 0 10px;
+  }
+
+    .btn-outline-dark{
+    border-radius: 1rem;
+ }
+
+ .cart{
+     padding: 10px; 
+ }
+ 
+.total-amount{
+    font-size: large;
+    padding-left: 87%;
+}
