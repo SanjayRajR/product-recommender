@@ -138,7 +138,7 @@ function get_suggested_products(product_id) {
             </div>
           </div>
           {% if user.id == None %}
-              <button class="btn-primary btn-block btn-lg" onclick="checkLogin()"><a href="{% url 'cart_add' product.id %}" style="color:white">BUY PRODUCT!</button>
+              <button class="btn-primary btn-block btn-lg" onclick="checkLogin()">BUY PRODUCT!</button>
           {% else %}
               <button class="btn-primary btn-block btn-lg" data-toggle="modal" data-target="#inquiryModal">BUY PRODUCT!</button>
           {% endif %}
@@ -173,12 +173,10 @@ function get_suggested_products(product_id) {
             </div>
           </div>
             <hr>
-            <button class="btn btn-block btn-secondary" onclick="buy(true)"><a href="{% url 'cart_add' suggested_product.id %}" style="color:white">Buy Both at ₹{{ product.price|add:suggested_product.price }}</button>
-            
+            <a href="{% url 'cart_add' suggested_product.id %}"><input type="button" value="Buy Both at ₹{{ product.price|add:suggested_product.price }}" class="btn btn-block btn-secondary"></a>
           <hr>
           {% endif %}
-          <button class="btn btn-block btn-secondary" onclick="buy(true)"><a href="{% url 'cart_add' product.id %}" style="color:white">Buy only {{product.name}} at ₹{{ product.price }}</button>
-            
+          <a href="{% url 'cart_detail' %}"><input type="button" value="Buy {{ product.name }} at ₹{{ product.price }}" class="btn btn-block btn-secondary"></a>
         </div>
       </div>
     </div>

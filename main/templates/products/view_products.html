@@ -57,7 +57,7 @@
           
               <div class="block2-txt p-t-20">
                 <a href="{% url 'product' product.id %}" class="block2-name dis-block s-text3 p-b-5 index_a">
-                  {{ product.name }}
+                  <span class="more-info">{{ product.name }}</span>
                 </a>
                 <br>
                 <span class="block2-price m-text6 p-r-5">
@@ -124,7 +124,7 @@
   
   <script type="text/javascript">
     $('.block2-btn-addcart').each(function(){
-      var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
+      var nameProduct = $(this).parent().parent().parent().find('.more-info').html();
       $(this).on('click', function(){
         swal(nameProduct, "is added to cart !", "success");
       });

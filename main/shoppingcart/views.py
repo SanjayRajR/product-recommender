@@ -13,7 +13,6 @@ def cart_add(request, id):
     cart.add(product=product)
     return redirect("cart_detail")
 
-
 @login_required(login_url="/accounts/login")
 def item_clear(request, id):
     cart = Cart(request)

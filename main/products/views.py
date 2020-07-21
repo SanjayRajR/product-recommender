@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from .models import Product, Transaction, Review, Order
+from shoppingcart.views import cart_add
 from django.core.paginator import Paginator
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -35,6 +36,7 @@ def index(request):
     return render(request, 'products/view_products.html',context)
 
 def product(request, product_id):
+    cart_add(request, product_id)
     product = get_object_or_404(Product, pk=product_id)
     transaction = Order.objects.values_list('products')
     transaction_ids = [list(x) for x in transaction]
@@ -61,7 +63,7 @@ def product(request, product_id):
     for i in df2['itemsets']:
         newlol.append(list(i))
     newlol = newlol[0]
-    suggested_product = Product.objects.get(id=newlol[0])
+    suggested_product = Product.objects.get(id=int(newlol[0]))
     print(suggested_product)
     # suggested_product = None
     # print("list1:" ,list1)

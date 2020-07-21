@@ -50,7 +50,7 @@
 
 							<button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
 								<!-- Add to Cart -->
-								<a href="{% url 'cart_add' product.id %}" style="color: white;">Add To Cart</a>
+								<a href="{% url 'product' product.id %}" style="color: white;">Add To Cart</a>
 							</button>
 						</div>
 					</div>
@@ -58,13 +58,13 @@
 		
 				<div class="block2-txt p-t-20">
 					<a href="{% url 'product' product.id %}" class="block2-name dis-block s-text3 p-b-5 index_a">
-						<span>{{ product.name }}</span>
+						<span class="more-info">{{ product.name }}</span>
 					</a>
-					
+				</div>	
 					<span class="block2-price m-text6 p-r-5">
 						₹{{ product.price }}
 					</span>
-				</div>
+				
 			</div>
 			{% endfor %}
            		{% else %}
@@ -170,7 +170,7 @@
 
 	<script type="text/javascript">
 		$('.block2-btn-addcart').each(function(){
-			var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
+			var nameProduct = $(this).parent().parent().parent().find('.more-info').html();
 			$(this).on('click', function(){
 				swal(nameProduct, "is added to cart !", "success");
 			});
