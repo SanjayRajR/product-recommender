@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Product, Transaction,Review
+from .models import Product
 # Register your models here.
 
 class ProductAdmin(admin.ModelAdmin):
@@ -10,13 +10,5 @@ class ProductAdmin(admin.ModelAdmin):
     search_fields = ('name', 'description', 'type')
     list_per_page = 25
 
-class TransactionAdmin(admin.ModelAdmin):
-    pass
-
-class ReviewAdmin(admin.ModelAdmin):
-    pass
-
 
 admin.site.register(Product, ProductAdmin)
-admin.site.register(Transaction, TransactionAdmin)
-admin.site.register(Review, ReviewAdmin)

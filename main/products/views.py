@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect,get_object_or_404
-from .models import Product, Transaction, Review, Order
+from .models import Product, Order
+from realtors.models import Seller
 from shoppingcart.views import cart_add
 from django.core.paginator import Paginator
 from rest_framework.views import APIView
@@ -32,7 +33,6 @@ def index(request):
         'brand_choices': brand_choices,
         'values': request.GET
     }
-    # print(listings)
     return render(request, 'products/view_products.html',context)
 
 def product(request, product_id):
@@ -64,18 +64,13 @@ def product(request, product_id):
         newlol.append(list(i))
     newlol = newlol[0]
     suggested_product = Product.objects.get(id=int(newlol[0]))
+    seller = Seller.objects.get(name=product.seller)
     print(suggested_product)
-    # suggested_product = None
-    # print("list1:" ,list1)
-    # if list1 and len(list1) > 0:
-    #     value, = list1[0]
-    #     pro_id = int(value)
-    #     suggested_product = Product.objects.get(id=pro_id)
-    #     print(suggested_product)
     context = {
         'product': product,
         'product_id':product_id,
         'user': request.user,
+        'seller':seller,
         'suggested_product': suggested_product
     }
     print(context)
@@ -116,69 +111,4 @@ def search(request):
         'values': request.GET
     }
     return render(request, 'products/search.html',context)
-
-def validate_products(products):
-    found_product_ids = []
-    missing_product_ids = []
-    total_amount = 0
-    if products:
-        product_ids = products.split(',')
-        for product_id in product_ids:
-            print(product_id)
-            product = Product.objects.filter(id=product_id)[0:1]
-            if len(product) > 0:
-                found_product_ids.append(product[0].id)
-                total_amount = round(total_amount + product[0].price, 2)
-            else:
-                missing_product_ids.append(product_id)
-
-    return found_product_ids, missing_product_ids, total_amount
-
-class PurchaseView(APIView):
-
-    renderer_classes = (JSONRenderer,)
-
-    def get(self, request):
-        purchase = Transaction.objects.all()
-        data = []
-        for p in purchase:
-            data.append({'id': p.id, 'amount': str(p.amount), 'products': p.products})
-        return Response({"purchase": data})
-
-    def post(self, request):
-        products = request.data.get('products')
-        found_product_ids, missing_product_ids, total_amount = validate_products(products)
-        if len(found_product_ids) > 0:
-            found_product_ids_str = ','.join([str(x) for x in found_product_ids])
-            transaction = Transaction(user=User.objects.get(id=request.user.id), products=found_product_ids_str, amount=total_amount)
-            transaction.save()
-            return Response(data={'message': 'Purchase successful'}, status=status.HTTP_201_CREATED)
-        else:
-            return Response(data={'status': 'Invalid products, unable to purchase'}, status=status.HTTP_400_BAD_REQUEST)
-
-
-class SuggestedProductView(APIView):
-
-    renderer_classes = (JSONRenderer,)
-
-    def get(self, request):
-        product_id = request.data.get("product_id")
-        # check product exists or not
-        # if not then give error
-        # run algo and return list of suggested products as json
-        return Response(data={'suggested_product': {'id': id, 'name': name, 'price': price}}, status=status.HTTP_201_CREATED)
-
-def review_system(request):
-    review_statement = request.POST['review']
-    csvfile = r'C:\Users\AnuNair\Desktop\TechCiti\btre\listings\sentiments_with_review.csv'
-    saved_review = pd.read_csv(csvfile, encoding='latin-1')
-    x = saved_review['review'].values
-    y = saved_review['sentiment'].values
-    naive_model = Pipeline([('vect', CountVectorizer()), ('tfidf', TfidfTransformer()), ('clf', MultinomialNB())])
-    naive_model.fit(x, y)
-    sentiment = naive_model.predict([review_statement])
-    print(sentiment[0])
-    reviews = Review(user=User.objects.get(id=request.user.id),review_statement=review_statement,review_sentiment=sentiment[0])
-    reviews.save()
-    return redirect('listings')
 
