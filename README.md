@@ -12,12 +12,12 @@ In the products page, you can see a list of products and choose your favorite pr
 But, be sure to register yourself and login, before we can recommend products for you.
 
 
-# How to get thi working
+# How to get this working
 
 You will have to open the anaconda prompt or any command line interface (CLI) and run the following commands after navigating to the project folder :
 
-python manage.py makemigrations
+### python manage.py makemigrations
 
-python manage.py migrate
+### python manage.py migrate
 
-python manage.py runserver
+### python manage.py runserver
