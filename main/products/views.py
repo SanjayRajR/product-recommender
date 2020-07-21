@@ -13,6 +13,7 @@ from django.views.decorators.csrf import csrf_exempt
 from mlxtend.frequent_patterns import apriori
 import numpy as np
 import pandas as pd
+import time
 from mlxtend.preprocessing import TransactionEncoder
 from products.choices import price_choices,type_choices,brand_choices
 from sklearn.naive_bayes import MultinomialNB
@@ -74,6 +75,7 @@ def product(request, product_id):
         'suggested_product': suggested_product
     }
     print(context)
+    time.sleep(1)
     return render(request, 'products/product.html',context)
 
 def search(request):
