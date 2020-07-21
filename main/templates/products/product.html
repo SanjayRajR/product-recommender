@@ -23,7 +23,7 @@ function getCookie(name) {
 function buy(buyBoth){
     var products_id = buyBoth ? "{{ product.id }},{{ suggested_product.id }}" : "{{ product.id }}";
     var csrf_token = getCookie("csrftoken");
-    var data =JSON.stringify({"products": products_id});
+    var data =JSON.stringify({"products": pro_id});
     var settings = {
       "async": true,
       "url": "http://127.0.0.1:8000/products/purchase",
@@ -70,7 +70,7 @@ function get_suggested_products(product_id) {
             <a href="{% url 'index' %}">Home</a>
           </li>
           <li class="breadcrumb-item">
-            <a href="{% url 'products' %}">Listings</a>
+            <a href="{% url 'products' %}">Products</a>
           </li>
           <li class="breadcrumb-item active">{{ product.name }}</li>
         </ol>
@@ -126,17 +126,6 @@ function get_suggested_products(product_id) {
                <p> {{ product.specification }}</p>
             </div>
           </div>
-          <!--
-          <p>Review:</p>
-          <form action="{% url 'review_system' %}" method="POST">
-            {% csrf_token %}
-            <div class="row mb-3">
-              <div class="col-md-8">
-                <input type="text" name="review" class="form-control">
-              </div>
-              <br><div class="col-md-4"><input type="submit" class="btn btn-block btn-secondary"></div>
-            </div>
-          </form>-->
         </div>
 
         <div class="col-md-1"></div>
@@ -176,18 +165,18 @@ function get_suggested_products(product_id) {
           {% if  suggested_product != None %}
           <div class="row">
             <div class="col-md-7">
-              <b><a href="{% url 'listing' suggested_product.id %}" target="_blank" >{{ suggested_product.name }}</a></b>
+              <b><a href="{% url 'product' suggested_product.id %}" target="_blank" >{{ suggested_product.name }}</a></b>
               <br/><b>Price: ₹{{ suggested_product.price }}</b>
             </div>
             <div class="col-md-5">
-              <img src="{{ suggested_product.image.url }}" alt="smx" >
+              <img src="{{ suggested_product.image.url }}" height="100" alt="smx" >
             </div>
           </div>
             <hr>
-            <input type="button" value="Buy Both at ₹{{ listing.price|add:suggested_product.price }}" class="btn btn-block btn-secondary" onclick="buy(true)">
+            <input type="button" value="Buy Both at ₹{{ product.price|add:suggested_product.price }}" class="btn btn-block btn-secondary" onclick="buy(true)">
           <hr>
           {% endif %}
-            <input type="button" value="Buy at ₹{{ listing.price }}" class="btn btn-block btn-secondary" onclick="buy()">
+            <input type="button" value="Buy only {{product.name}} at ₹{{ product.price }}" class="btn btn-block btn-secondary" onclick="buy()">
         </div>
       </div>
     </div>
