@@ -3,7 +3,7 @@ from django.http import HttpResponse
 
 from products.models import Product
 from realtors.models import Seller
-from products.choices import price_choices,type_choices,brand_choices
+from products.choices import type_choices,brand_choices
 
 
 # Create your views here.
@@ -13,7 +13,6 @@ def index(request):
 
     context = {
         'products' : products,
-        'price_choices': price_choices,
         'brand_choices': brand_choices,
         'type_choices': type_choices,
     }

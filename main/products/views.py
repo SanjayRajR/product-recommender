@@ -15,10 +15,7 @@ import numpy as np
 import pandas as pd
 import time
 from mlxtend.preprocessing import TransactionEncoder
-from products.choices import price_choices,type_choices,brand_choices
-from sklearn.naive_bayes import MultinomialNB
-from sklearn.feature_extraction.text import TfidfTransformer, CountVectorizer
-from sklearn.pipeline import Pipeline
+from products.choices import type_choices, brand_choices
 
 
 
@@ -107,7 +104,6 @@ def search(request):
 
     context = {
         'products': queryset_list,
-        'price_choices': price_choices,
         'brand_choices': brand_choices,
         'type_choices': type_choices,
         'values': request.GET
