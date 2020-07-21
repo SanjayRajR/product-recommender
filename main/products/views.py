@@ -1,5 +1,9 @@
 from django.shortcuts import render,redirect,get_object_or_404
+<<<<<<< HEAD
 from .models import Product, Transaction,Review,Order
+=======
+from .models import Product, Transaction, Review, Order
+>>>>>>> 8155a5c3d933835770253c2f68855eadfc8f554f
 from django.core.paginator import Paginator
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -179,5 +183,4 @@ def review_system(request):
     reviews = Review(user=User.objects.get(id=request.user.id),review_statement=review_statement,review_sentiment=sentiment[0])
     reviews.save()
     return redirect('listings')
-
 
