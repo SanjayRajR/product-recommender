@@ -1,5 +1,5 @@
 {% load static %}
-
+{% load cart_tag %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,7 +67,10 @@
             class="nav-item"
           {% endif %}
           >
-            <a class="nav-link" href="{% url 'cart_detail' %}">Cart</a>
+            <!-- <a class="nav-link" href="{% url 'cart_detail' %}">Cart</a> -->
+            <a class="nav-link notification" href="{% url 'cart_detail' %}"> 
+              <span>Cart</span>
+              <span class="badge">{{  request.session.cart| length }}</span></a>
           </li>
       </ul>
       <ul class="navbar-nav ml-auto">
