@@ -1,0 +1,2 @@
+pip install django-shopping-cart
+pip install django-mysql
